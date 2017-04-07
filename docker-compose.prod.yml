@@ -1,0 +1,11 @@
+web:
+  restart: always
+
+nginx:
+  restart: always
+
+postgres:
+  restart: always
+
+redis:
+  restart: always

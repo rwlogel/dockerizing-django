@@ -1,0 +1,4 @@
+web:
+  environment:
+    DEBUG: 'true'
+

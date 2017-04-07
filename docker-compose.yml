@@ -1,5 +1,4 @@
 web:
-  restart: always
   build: ./web
   expose:
     - "8000"
@@ -12,10 +11,9 @@ web:
   env_file: .env
   environment:
     DEBUG: 'true'
-  command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+  command: ./run.scp
 
 nginx:
-  restart: always
   build: ./nginx/
   ports:
     - "80:80"
@@ -27,7 +25,6 @@ nginx:
     - web:web
 
 postgres:
-  restart: always
   image: postgres:latest
   ports:
     - "5432:5432"
@@ -35,7 +32,6 @@ postgres:
     - pgdata:/var/lib/postgresql/data/
 
 redis:
-  restart: always
   image: redis:latest
   ports:
     - "6379:6379"
